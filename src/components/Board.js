@@ -1,28 +1,34 @@
-import React from 'react'
+import React, {Component} from 'react'
+import uuid from 'uuid'
+import Issues from './Issues'
 
-export default function Sidebar (props){
+export default class Board extends Component {
 
-  return (
-    <div className="board">
-        <p className="time">18-10-2016</p>
+  groupIssuesByDate(issues){
+    return issues.length
+    ? issues.reduce((a,b)=>{
+      a[b.date] = a[b.date] || []
+      a[b.date].push(b)
+      return a
+    }, {})
+    : []
+  }
 
-          <li className="item">
-            <p className="item__title">
-              Fix repo
-            </p>
+  renderIssues(issues){
+    return Object.keys(issues).map(date => {
+      return (
+        <div key={uuid()}>
+          <p className="time">{date}</p>
+          <Issues issues={issues[date]}/>
+        </div>
+      )
+    })
+  }
 
-            <img className="item__star" src="/icon-star-fill.svg"/>
-          </li>
-
-          <li className="item">
-            <p className="item__title">
-              Fix 2 repo
-            </p>
-
-            <img className="item__star" src="/icon-star-empty.svg"/>
-          </li>
-    </div>
-
-  )
+  render(){
+    const {issues} = this.props
+    const groupedIssues = this.groupIssuesByDate(issues)
+    return this.renderIssues(groupedIssues)
+  }
 
 }

@@ -1,19 +1,55 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react'
 import Sidebar from './components/Sidebar'
 import Board from './components/Board'
 
 class App extends Component {
-  render() {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      apiData: [],
+      selectedBoard: 'all'
+    }
+  }
+
+  async componentDidMount(){
+    //fetch data from API
+    //const apiData = await axios.get('/api')
+    const apiData = require('./data.json')
+    this.setState({
+      apiData
+    })
+  }
+
+  render(){
+    const {apiData: allIssues, selectedBoard} = this.state
+    const openIssues = allIssues.filter(commit => commit.open)
+    const closedIssues = allIssues.filter(commit => !commit.open)
+
+    //choose which data to render in 'Board'
+    let renderedIssues
+    if(selectedBoard==='all') renderedIssues = allIssues
+    else if(selectedBoard==='open') renderedIssues = openIssues
+    else if(selectedBoard==='closed') renderedIssues = closedIssues
+
     return (
       <div className="App">
 
-        <Sidebar/>
+        <Sidebar
+          allIssuesLength={allIssues.length}
+          openIssuesLength={openIssues.length}
+          closedIssuesLength={closedIssues.length}
+        />
 
-        <Board/>
+        <div className="board">
+          <Board
+            issues={renderedIssues}
+          />
+        </div>
 
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

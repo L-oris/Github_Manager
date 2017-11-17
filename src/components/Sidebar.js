@@ -13,31 +13,31 @@ export default function Sidebar (props){
       <ul className="menu">
         <li className="menu--highlight">
           <div className="menu__title">
-            <img src="./assets/icon-github.svg"/>
+            <img src="/icon-github.svg" alt="github icon"/>
             <h4>All</h4>
           </div>
           <h4 className="menu__number">
-            12
+            {props.allIssuesLength}
           </h4>
         </li>
 
         <li className="menu__item">
           <div className="menu__title">
-            <img src="./assets/icon-open-issue.svg"/>
+            <img src="/icon-open-issue.svg" alt="open icon"/>
             <h4>Open</h4>
           </div>
           <h4 className="menu__number">
-            8
+            {props.openIssuesLength}
           </h4>
         </li>
 
         <li className="menu__item">
           <div className="menu__title">
-            <img src="./assets/icon-closed-issue.svg"/>
+            <img src="/icon-closed-issue.svg" alt="closed icon"/>
             <h4>Closed</h4>
           </div>
           <h4 className="menu__number">
-            4
+            {props.closedIssuesLength}
           </h4>
         </li>
       </ul>

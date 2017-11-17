@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "date": "19-07-2016",
+    "name": "Page changes",
+    "open": true
+  },
+  {
+    "id": 2,
+    "date": "19-07-2016",
+    "name": "Review of last issues",
+    "open": false
+  },
+  {
+    "id": 3,
+    "date": "18-07-2016",
+    "name": "Visual UI Update Review",
+    "open": false
+  },
+  {
+    "id": 4,
+    "date": "18-07-2016",
+    "name": "Sidebar changes",
+    "open": false
+  }
+]
