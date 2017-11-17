@@ -11,6 +11,7 @@ class App extends Component {
       selectedBoard: 'all'
     }
     this.handleSelectedBoard = this.handleSelectedBoard.bind(this)
+    this.handleClickedIssue = this.handleClickedIssue.bind(this)
   }
 
   async componentDidMount(){
@@ -28,6 +29,22 @@ class App extends Component {
     })
   }
 
+  async handleClickedIssue(issueId){
+    //make POST request to API
+    //const {status} = await axios.post('/something', {issueId})
+    //if(status===200){
+      //change state
+    //}
+    this.setState({
+      apiData: this.state.apiData.map(issue => {
+        if(issue.id===issueId){
+          issue.open = !issue.open
+        }
+        return issue
+      })
+    })
+  }
+
   render(){
     const {apiData: allIssues, selectedBoard} = this.state
     const openIssues = allIssues.filter(commit => commit.open)
@@ -40,7 +57,7 @@ class App extends Component {
     else if(selectedBoard==='closed') renderedIssues = closedIssues
 
     return (
-      <div className="App">
+      <div className="app">
 
         <Sidebar
           handleSelectedBoard={this.handleSelectedBoard}
@@ -53,6 +70,7 @@ class App extends Component {
         <div className="board">
           <Board
             issues={renderedIssues}
+            handleClickedIssue={this.handleClickedIssue}
           />
         </div>
 

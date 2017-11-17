@@ -9,7 +9,7 @@ ul {
 }
 
 
-.App {
+.app {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -55,25 +55,26 @@ ul.os-buttons {
   }
 
 
-ul.menu {}
+ul.options {}
 
-  .menu__item {
+  .option {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px;
+    cursor: pointer;
   }
-  .menu__item--current {
+  .option--current {
     background-color: rgba(41,42,72,.8);
   }
 
-    .menu__title {}
+    .option__title {}
 
-      .menu__title img {
+      .option__title img {
         vertical-align: text-top;
       }
 
-      .menu__title h4 {
+      .option__title h4 {
         font-weight: normal;
         display: inline;
         color: white;
@@ -81,7 +82,7 @@ ul.menu {}
         white-space: nowrap;
       }
 
-    .menu__number {
+    .option__number {
       font-weight: normal;
       margin: 0 0 0 8px;
       color: rgba(255,255,255,.6);
@@ -100,12 +101,12 @@ ul.menu {}
 }
 
 
-  .time {
+  .date {
     opacity: .5;
   }
 
 
-  .item {
+  .commit {
     background-color: white;
     border: 1px solid rgba(0,0,0,.2);
     border-radius: 5px;
@@ -115,6 +116,13 @@ ul.menu {}
     justify-content: space-between;
   }
 
-    .item__title {}
+    .commit__title {}
 
-    .item__star {}
+    .commit__star {}
+
+
+
+
+@media(min-width: 768px){}
+
+@media(min-width: 1024px){}

@@ -10,42 +10,42 @@ export default function Sidebar (props){
         <li></li>
       </ul>
 
-      <ul className="menu">
+      <ul className="options">
         <li
-          className={selectedBoard==='all' ? 'menu__item menu__item--current' : 'menu__item'}
+          className={selectedBoard==='all' ? 'option option--current' : 'option'}
           onClick={e => handleSelectedBoard('all')}
         >
-          <div className="menu__title">
+          <div className="option__title">
             <img src="/icon-github.svg" alt="github-icon"/>
             <h4>All</h4>
           </div>
-          <h4 className="menu__number">
+          <h4 className="option__number">
             {props.allIssuesLength}
           </h4>
         </li>
 
         <li
-          className={selectedBoard==='open' ? 'menu__item menu__item--current' : 'menu__item'}
+          className={selectedBoard==='open' ? 'option option--current' : 'option'}
           onClick={e => handleSelectedBoard('open')}
         >
-          <div className="menu__title">
+          <div className="option__title">
             <img src="/icon-open-issue.svg" alt="open-icon"/>
             <h4>Open</h4>
           </div>
-          <h4 className="menu__number">
+          <h4 className="option__number">
             {props.openIssuesLength}
           </h4>
         </li>
 
         <li
-          className={selectedBoard==='closed' ? 'menu__item menu__item--current' : 'menu__item'}
+          className={selectedBoard==='closed' ? 'option option--current' : 'option'}
           onClick={e => handleSelectedBoard('closed')}
         >
-          <div className="menu__title">
+          <div className="option__title">
             <img src="/icon-closed-issue.svg" alt="closed-icon"/>
             <h4>Closed</h4>
           </div>
-          <h4 className="menu__number">
+          <h4 className="option__number">
             {props.closedIssuesLength}
           </h4>
         </li>

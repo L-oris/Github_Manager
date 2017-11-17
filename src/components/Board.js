@@ -18,8 +18,11 @@ export default class Board extends Component {
     return Object.keys(issues).map(date => {
       return (
         <div key={uuid()}>
-          <p className="time">{date}</p>
-          <Issues issues={issues[date]}/>
+          <p className="date">{date}</p>
+          <Issues
+            issues={issues[date]}
+            handleClickedIssue={this.props.handleClickedIssue}
+          />
         </div>
       )
     })
