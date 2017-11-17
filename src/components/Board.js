@@ -14,13 +14,13 @@ export default class Board extends Component {
     : []
   }
 
-  renderIssues(issues){
-    return Object.keys(issues).map(date => {
+  renderIssues(groupedIssues){
+    return Object.keys(groupedIssues).map(date => {
       return (
         <div key={uuid()}>
           <p className="date">{date}</p>
           <Issues
-            issues={issues[date]}
+            issues={groupedIssues[date]}
             handleClickedIssue={this.props.handleClickedIssue}
           />
         </div>

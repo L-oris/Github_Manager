@@ -1,5 +1,16 @@
+:root {
+  --light-grey: #f6f6f6;
+  --red: #fc5850;
+  --orange: #fdb929;
+  --green: #20cc4c;
+  --dark-blue-transp: rgba(17,16,34,.95);
+  --blue-transp: rgba(41,42,72,.95);
+}
+
 body {
   font-family: 'Roboto', sans-serif;
+  background: url('/background.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 ul {
@@ -25,15 +36,15 @@ ul {
 
 
 .sidebar {
-  flex: 1 25%;
-  background-color: rgba(17,16,34,.95);
+  flex: 1 38%;
+  background-color: var(--dark-blue-transp);
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
 
 ul.os-buttons {
-  padding: 12px;
+  padding: 6px 12px;
 }
 
   .os-buttons li {
@@ -41,17 +52,17 @@ ul.os-buttons {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    margin: 3px;
+    margin: 7px;
     cursor: pointer;
   }
   .os-buttons li:nth-child(1) {
-    background-color: rgba(255,0,0,.7);
+    background-color: var(--red);
   }
   .os-buttons li:nth-child(2) {
-    background-color: rgba(255,200,0,.7);
+    background-color: var(--orange);
   }
   .os-buttons li:nth-child(3) {
-    background-color: rgba(0,255,0,.7);
+    background-color: var(--green);
   }
 
 
@@ -61,11 +72,11 @@ ul.options {}
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px;
+    padding: 14px 12px;
     cursor: pointer;
   }
   .option--current {
-    background-color: rgba(41,42,72,.8);
+    background-color: var(--blue-transp);
   }
 
     .option__title {}
@@ -92,37 +103,75 @@ ul.options {}
 
 
 .board {
-  flex: 1 75%;
-  background-color: #f0f3f6;
+  flex: 1 62%;
+  background-color: var(--light-grey);
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  padding: 0 20px;
+  padding: 10px 20px;
   overflow-y: scroll;
 }
 
 
   .date {
     opacity: .5;
+    margin: 10px 0;
   }
 
 
-  .commit {
+  .issue {
     background-color: white;
     border: 1px solid rgba(0,0,0,.2);
     border-radius: 5px;
     margin: 10px 0;
-    padding: 0 15px;
+    padding: 12px 15px;
     display: flex;
     justify-content: space-between;
   }
 
-    .commit__title {}
+    .issue__title {
+      margin: 0;
+    }
 
-    .commit__star {}
+    .issue__star {}
 
 
 
 
-@media(min-width: 768px){}
+@media(min-width: 768px){
 
-@media(min-width: 1024px){}
+  .app {
+    width: 80%;
+  }
+
+  .sidebar {
+    flex: 1 30%;
+  }
+  .board {
+    flex: 1 70%;
+  }
+
+}
+
+@media(min-width: 1024px){
+
+  .app {
+    width: 65%;
+  }
+
+  .sidebar {
+    flex: 1 22%;
+  }
+
+    .option {
+      padding: 16px 18px;
+    }
+
+    .option__title h4 {
+      margin-left: 10px;
+    }
+
+  .board {
+    flex: 1 78%;
+  }
+
+}
