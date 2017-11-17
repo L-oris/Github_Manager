@@ -14,7 +14,7 @@ ul {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
+  width: 95%;
   height: 600px;
   border-radius: 10px;
   box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.75);
@@ -57,13 +57,13 @@ ul.os-buttons {
 
 ul.menu {}
 
-  .menu li {
+  .menu__item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 12px;
   }
-  li.menu--highlight {
+  .menu__item--current {
     background-color: rgba(41,42,72,.8);
   }
 
@@ -77,12 +77,13 @@ ul.menu {}
         font-weight: normal;
         display: inline;
         color: white;
-        margin-left: 5px;
+        margin-left: 8px;
+        white-space: nowrap;
       }
 
     .menu__number {
       font-weight: normal;
-      margin: 0;
+      margin: 0 0 0 8px;
       color: rgba(255,255,255,.6);
     }
 

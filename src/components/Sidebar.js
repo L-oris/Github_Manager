@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Sidebar (props){
-
+  const {selectedBoard,handleSelectedBoard} = props
   return (
     <div className="sidebar">
       <ul className="os-buttons">
@@ -11,9 +11,12 @@ export default function Sidebar (props){
       </ul>
 
       <ul className="menu">
-        <li className="menu--highlight">
+        <li
+          className={selectedBoard==='all' ? 'menu__item menu__item--current' : 'menu__item'}
+          onClick={e => handleSelectedBoard('all')}
+        >
           <div className="menu__title">
-            <img src="/icon-github.svg" alt="github icon"/>
+            <img src="/icon-github.svg" alt="github-icon"/>
             <h4>All</h4>
           </div>
           <h4 className="menu__number">
@@ -21,9 +24,12 @@ export default function Sidebar (props){
           </h4>
         </li>
 
-        <li className="menu__item">
+        <li
+          className={selectedBoard==='open' ? 'menu__item menu__item--current' : 'menu__item'}
+          onClick={e => handleSelectedBoard('open')}
+        >
           <div className="menu__title">
-            <img src="/icon-open-issue.svg" alt="open icon"/>
+            <img src="/icon-open-issue.svg" alt="open-icon"/>
             <h4>Open</h4>
           </div>
           <h4 className="menu__number">
@@ -31,9 +37,12 @@ export default function Sidebar (props){
           </h4>
         </li>
 
-        <li className="menu__item">
+        <li
+          className={selectedBoard==='closed' ? 'menu__item menu__item--current' : 'menu__item'}
+          onClick={e => handleSelectedBoard('closed')}
+        >
           <div className="menu__title">
-            <img src="/icon-closed-issue.svg" alt="closed icon"/>
+            <img src="/icon-closed-issue.svg" alt="closed-icon"/>
             <h4>Closed</h4>
           </div>
           <h4 className="menu__number">

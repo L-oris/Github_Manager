@@ -10,6 +10,7 @@ class App extends Component {
       apiData: [],
       selectedBoard: 'all'
     }
+    this.handleSelectedBoard = this.handleSelectedBoard.bind(this)
   }
 
   async componentDidMount(){
@@ -18,6 +19,12 @@ class App extends Component {
     const apiData = require('./data.json')
     this.setState({
       apiData
+    })
+  }
+
+  handleSelectedBoard(selectedBoard){
+    this.setState({
+      selectedBoard
     })
   }
 
@@ -36,6 +43,8 @@ class App extends Component {
       <div className="App">
 
         <Sidebar
+          handleSelectedBoard={this.handleSelectedBoard}
+          selectedBoard={selectedBoard}
           allIssuesLength={allIssues.length}
           openIssuesLength={openIssues.length}
           closedIssuesLength={closedIssues.length}
